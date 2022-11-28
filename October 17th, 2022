@@ -1,0 +1,51 @@
+
+# converting all letters to upper-case manually
+st = input ('Enter a string: ')
+codes = []
+
+for ch in st:
+    print(ch, '=', ord(ch))
+    codes. appen(ord(ch))
+
+for e in codes:
+    print(e, '=' chr(e))
+
+
+name = input('Enter a name:')
+upper = ''
+
+for ch in name:
+    if ch >= 'a' and ch <= 'z':
+        upper += chr(ord(ch) + 32) # if 'a', ord('a') = 97, 97 - 32 = 65, chr(65) = A
+    else:
+        upper += ch
+    
+print('the name in all upper-case is:', upper)
+
+
+print(name.upper()) # converting all letters to upper-case letters
+print(name.lower()) # converting all letters to lower-case letters
+
+str1 = input('Enter the first string: ')
+str2 = input('Enter the second string: ')
+
+x = str2.find(str1.strip())) # strip away spaces from string
+
+words = str2.split()
+
+
+
+n = int(input('Enter the number of files: '))
+files = []
+
+for i in range (0,n):
+    print('Enter the name of file', i + 1, end = ': ')
+    filename = input('')
+    files.append(filename)
+
+myfile = input('Enter the part of the file name to search for: ')
+
+print('the search result is:')
+for file in files:
+    
+    

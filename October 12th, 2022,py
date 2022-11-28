@@ -1,0 +1,53 @@
+#intro to functions
+import math
+def is_prime(n): # n is integer to be inputed; is the value put into function. Outputs and is returned as boolean (true or false)
+    # n is a positive integer
+    # the functions is going to check if number is prime or no
+    #you're inputting the code you placed before...
+    m = int(math.sqrt(n)) + 1
+    if n == 1:
+        return False
+    for i in range(2,m):
+        if n % i == 0:
+            return False # gives the answer to the function. no need a 'break' return would break all contents of the function
+        
+    return True
+
+'''# main part of program
+a = 17
+is_prime(12)
+is_prime(a)
+p = is_prime(a * 2 + 1) # must put it in a variable to store the output of a function; if not, use it somewhere else
+print(p)'''
+
+def power(x, y):
+    p = 1
+    for i in range(1, y + 1):
+        p = p * x
+    return p
+
+def sum_list(elements):
+    sum = 0
+    n = len(elements)
+    for i in range(0,n):
+        sum = sum + elements[i]
+
+#r = power(2, 6)
+x = int(input(' Enter an integer number: '))
+
+if is_prime(x):
+    print('number is prime')
+else:
+    print('number is not prime')
+
+
+
+a = int(input('enter a lower bound number'))
+b = int(input('enter a higher bound number'))
+
+for i in range(a, b + 1):
+    check, divisor = is_prime(i)
+    if check:
+         print(i,'is prime')
+    else:
+        print(i, 'is not prime because it is divisble by', divisor)

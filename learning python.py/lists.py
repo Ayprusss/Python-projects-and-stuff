@@ -1,0 +1,1 @@
+names = ['John', 'Mosh', 'Bob', 'Sam', 'Mary']

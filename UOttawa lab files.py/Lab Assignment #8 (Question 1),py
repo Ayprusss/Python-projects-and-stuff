@@ -1,0 +1,74 @@
+n = int(input('Enter the dimensions of your matrix: '))
+
+#   CREATE THE MATRIX.
+matrix = []
+
+for i in range(0, n):
+    row = []
+    for j in range(0, n):
+        print('Enter the element for row [', i + 1,',', j + 1,']:', end = ' ')
+        x = int(input(''))
+        row.append(x)
+    
+    matrix.append(row)
+
+
+print(matrix)
+#MATRIX IS NOW CREATED. must now scan the matrix. 
+
+def diagonal(x): #CREATES DIAGONAL LINE THROUGH MATRIX. FOR ANALYSIS.
+    diagonalLine = []
+    for a in range(0, n): #n rows would be made with n columns: thus only need one for loop.
+        diagnum = x[a][a]
+        diagonalLine.append(diagnum)
+    
+    return diagonalLine
+
+
+tricheck = diagonal(matrix)
+
+def upperCheck(x,y, n): #x,y = matrix(list), tricheck (variable for triangle check)
+    uppTriangular = True
+    
+    for a in range(1, n): # starts at row 1 cause upper check wouldn't work; no elements before it
+        elementCheck = y[a] # element that acts as a border to check all values underneather diagonal.
+        checkIndex = x[a].index(elementCheck) #position
+        for b in range(0, checkIndex):
+            matrixElement = x[a][b]
+            if matrixElement != 0:
+                return False
+        
+    return True
+
+def lowerCheck(x,y, n): #x,y = Matrix(list), tricheck
+    lowTriangular = False
+
+    for a in range(0, n - 1):
+        elementCheck = y[a]
+        checkIndex = x[a].index(elementCheck)
+        for b in range(checkIndex + 1, n):
+            matrixElement = x[a][b]
+            if matrixElement != 0:
+                return False
+    
+    return True
+
+upCheck = upperCheck(matrix, tricheck, n)
+
+lowCheck = lowerCheck(matrix, tricheck, n)
+
+if upCheck == False and lowCheck == False:
+    print('this matrix is neither upper nor lower trianguular.')
+    quit()
+elif upCheck == True and lowCheck == True:
+    print('this matrix is both upper triangular and lower triangular.')
+    quit()
+if upCheck == False and lowCheck == True:    
+    print('this matrix is lower Triangular.')
+    quit()
+else:
+    print('this matrix is upper triangular.')
+    quit()
+
+
+
