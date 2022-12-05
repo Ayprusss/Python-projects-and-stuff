@@ -214,6 +214,65 @@ class TexasHoldEm:
         
         return False
 
+class TexasHoldEm(PokerGame):
+    def __init__(self, players = 2):
+        super().__init__(players)
+    
+    def deal(self):
+        for i in range(1, self.players + 1):
+            cards = 0
+            for q in range(0, 2):
+                self.add_card(i)
+        
+        j = 0
+        while j != 5:
+            self.add_to_table()
+            j += 1
+            
+    
+    def hands(self):
+        for a in range(0, len(self.playerHands)): # accesses all hands on the table.
+            Hand = self.playerHands #accesses the specific player's hands.
+            for b in range(0, len(Hand[a])):  #Hand[a] == The player's hands
+                card = Hand[a][b][0] #to access each individual card of the player's hand
+                if card == 10:
+                    Hand[a][b].remove(10)
+                    Hand[a][b].insert(0, 'T')
+                elif card == 11:
+                    Hand[a][b].remove(11)
+                    Hand[a][b].insert(0, 'J')
+                elif card == 12:
+                    Hand[a][b].remove(12)
+                    Hand[a][b].insert(0, 'Q')
+                elif card == 13:
+                    Hand[a][b].remove(13)
+                    Hand[a][b].insert(0, 'K')
+                elif card == 1:
+                    Hand[a][b].remove(1)
+                    Hand[a][b].insert(0, 'A')
+                
+            print('player', str(a + 1) + "'s", 'cards:', Hand[a])
+
+        for c in range(0, len(self.table)):
+            rank = self.table[c][0]
+            if rank == 10:
+                    self.table[c].remove(10)
+                    self.table[c].insert(0, 'T')
+            elif rank == 11:
+                    self.table[c].remove(11)
+                    self.table[c].insert(0, 'J')
+            elif rank == 12:
+                    self.table[c].remove(12)
+                    self.table[c].insert(0, 'Q')
+            elif rank == 13:
+                    self.table[c].remove(13)
+                    self.table[c].insert(0, 'K')
+            elif rank == 1:
+                    self.table[c].remove(1)
+                    self.table[c].insert(0, 'A')
+        
+        print('Table:', self.table)
+    
 T1 = TexasHoldEm(4)
 T1.add_card(3)
 for b in range(0, 5):
