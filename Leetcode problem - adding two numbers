@@ -1,0 +1,52 @@
+a = int(input('Enter the first number: '))
+a1 = []
+
+while a != 0:
+    num1 = a % 10
+    a1.append(num1)
+    a = a // 10
+    print(a1)
+
+b = int(input('Enter the second number: '))
+b1 = []
+while b != 0:
+    num2 = b % 10
+    b1.append(num2)
+    b = b // 10
+    print(b1)
+    
+
+counter = 0
+Finalsum = []
+
+if a == 0 and b == 0:
+    Finalsum.append(0)
+
+for x in range(len(a1) -1 ):
+
+    finalNum = a1[x] + b1[x]
+    print('Counter:', counter)
+    if finalNum < 10:
+        if counter > 0:
+            Tempsum = finalNum + 1
+            print('Tempsum:', Tempsum)
+            if Tempsum >= 10:
+                Finalsum.append(0)
+                counter += 1
+                print('Counter from inside counter func.:', counter )
+            elif Tempsum < 10:
+                Finalsum.append(finalNum + 1)
+        elif counter == 0:     
+            Finalsum.append(finalNum)
+    elif finalNum >= 10:
+        Finalsum.append(0)
+        counter += 1
+    
+        
+        
+    
+
+
+    
+
+print(Finalsum)
